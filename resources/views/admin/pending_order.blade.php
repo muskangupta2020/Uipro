@@ -94,7 +94,6 @@ function exportTableToCSV(filename) {
       
      <th>SN</th>
      <th>User ID</th>
-     <th>Vendor ID</th>
      <th>Product</th>
      <th>Price<span>&#8377;</span></th>
       <th>Qty</th>
@@ -103,29 +102,28 @@ function exportTableToCSV(filename) {
       <th>Payment Method</th>
       <th>Shipping Address</th>
       <th>Billing Address</th>
-      <th>Tracking Details</th>
       <th>#</th>
     </tr>
                 </thead>
                 <tbody>
+                  @foreach($po as $p)
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{$loop->iteration}}</td>
+          <td>{{$p->user_id}}</td>
+          <td>{{$p->p_name}}</td>
+          <td>{{$p->p_price}}</td>
+          <td>{{$p->p_Quantity}}</td>
+          <td>{{$p->total}}</td>
+          <td>{{$p->created_at}}</td>
+          <td>{{$p->payment_mode}}</td>
+          <td>{{$p->address}}</td>
+          <td>{{$p->city}}</td>
          <td>
-          <a href=""><button  style="font-size:15px" class="btn btn-success">Delete</button></a>&nbsp;
+          <a href="{{url('admin/pending_order/delete/'.$p->id)}}"><button  style="font-size:15px" class="btn btn-success">Delete</button></a>&nbsp;
            
           </td>
                   </tr>
+              @endforeach
                   </tbody>
                 </table>
               </div>

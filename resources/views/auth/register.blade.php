@@ -29,7 +29,7 @@
                 <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-2">
                     <div class="col mx-auto">
                         <div class="my-4 text-center">
-                            <img src="{{ url('user/assets/images/logo-img.png') }}" width="180" alt="" />
+                            <img src="{{ url('assets/images/logo.jfif') }}" width="180" alt="" />
                         </div>
                         <div class="card">
                             <div class="card-body">
@@ -66,7 +66,7 @@
                                                 <label for="inputEmailAddress" class="form-label">Email Address</label>
                                                 <input type="email" class="form-control @error('email')
                                                 is-invalid @enderror" id="inputEmailAddress"
-                                                    placeholder="example@user.com" name="email"
+                                                    placeholder="" autocomplete="off" name="email"
                                                     value="{{ old('email') }}">
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
@@ -96,29 +96,18 @@
 
                                             <div class="col-12">
                                                 <label for="inputSelectCountry" class="form-label">Sign UP Plan</label>
+                                                 @foreach($plan as $p)
                                                 <select class="form-select" id="inputSelectCountry"
                                                     aria-label="Default select example" name="sign_up_plan"
                                                     value="{{ old('sign_up_plan') }}">
-                                                    <option value="A">Plan A. Price :<span>&#8377;</span>500.00
-                                                    </option>
-                                                    <option value="B">Plan B. Price :<span>&#8377;</span>10,000.00
-                                                    </option>
-                                                    <option value="C">Plan C. Price :<span>&#8377;</span>30,000.00
-                                                    </option>
-                                                    <option value="D">Plan D. Price :<span>&#8377;</span>100,000.00
-                                                    </option>
+                                                     <option selected value="sign_up_plan" >{{$p->plan_name}}. Price :<span>&#8377;</span>{{$p->joining_fee}}</option>
                                                 </select>
+                                                 @endforeach
                                             </div><br>
                                             <div class="col-6">
                                                 <label for="inputSelectCountry" class="form-label">State</label>
-                                                <select class="form-select" id="inputSelectCountry"
-                                                    aria-label="Default select example" name="states"
-                                                    value="{{ old('states') }}">
-                                                    <option selected>Select</option>
-                                                    <option value="1">Madhya pradesh</option>
-                                                    <option value="2">Uttar Pradesh</option>
-                                                    <option value="3"></option>
-                                                </select>
+                                                <input type="text" class="form-control" id="inputLastName"
+                                                    placeholder="" name="states" value="{{ old('states') }}">
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="inputLastName" class="form-label">City</label>
@@ -144,7 +133,7 @@
                                                 <div class="input-group" id="show_hide_password">
                                                     <input type="password" name="password"
                                                         class="form-control border-end-0" id="inputChoosePassword"
-                                                        value="12345678" placeholder="Enter Password"> <a
+                                                         placeholder="Enter Password"> <a
                                                         href="javascript:;" class="input-group-text bg-transparent"><i
                                                             class='bx bx-hide'></i></a>
                                                 </div>
@@ -154,7 +143,7 @@
                                                     Password</label>
                                                 <div class="input-group" id="show_hide_password">
                                                     <input type="password" class="form-control border-end-0"
-                                                        id="inputChoosePassword" value="12345678"
+                                                        id="inputChoosePassword" 
                                                         placeholder="Enter Password"> <a href="javascript:;"
                                                         class="input-group-text bg-transparent"><i class='bx bx-hide'
                                                             ></i></a>

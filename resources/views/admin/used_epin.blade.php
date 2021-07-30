@@ -1,5 +1,3 @@
-
-
 @extends("admin.master")
 
 @section("content")
@@ -34,7 +32,7 @@
         </div>
         <!--end breadcrumb-->
               
-<h6 class="mb-0 text-uppercase">Request EPIN</h6>
+<h6 class="mb-0 text-uppercase">Used EPIN</h6>
         <hr/>
         <div class="card">
           <div class="card-body">

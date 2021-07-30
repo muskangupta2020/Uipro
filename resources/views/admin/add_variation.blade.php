@@ -17,6 +17,24 @@
             </nav>
           </div>
         </div>
+        @if (session('message') != null)
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p class="alert alert-success">
+                                {{ session('message') }}
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    @endif
+                    @if (session('notmessage') != null)
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <p class="alert alert-danger">
+                                {{ session('notmessage') }}
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    @endif
         <!--end breadcrumb-->
         <div class="row">
           <div class="col-xl-8 mx-auto">

@@ -9,11 +9,13 @@ class WalletController extends Controller
 {
     public function view_wallet()
     {
-        return view('admin.view_wallet');
+        $wallet = Wallet::all();
+        return view('admin.view_wallet',compact('wallet'));
     }
-    public function topup_wallet()
+    public function topup_wallet(Request $r)
     {
-        return view('admin.topup_wallet');
+        $wallet = new Wallet;
+        return view('admin.topup_wallet',compact('wallet'));
     }
     public function transfer_fund()
     {

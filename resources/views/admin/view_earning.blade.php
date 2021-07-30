@@ -31,7 +31,7 @@
           </div>
         </div>
         <!--end breadcrumb-->
-                  
+
 <h6 class="mb-0 text-uppercase">View Earnings</h6>
         <hr/>
         <div class="card">
@@ -40,6 +40,7 @@
               <table id="example2" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
+
                      <th>SN</th>
                     <th>User ID</th>
                     <th>User Name</th>
@@ -51,18 +52,19 @@
                   </tr>
                 </thead>
                 <tbody>
-
+                  @foreach($Earning as $e)
         <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-              
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$e->user_id}}</td>
+                    <td>{{$e->user_name}}</td>
+                    <td>{{$e->earning_amount}}</td>
+                    <td>{{$e->type}}</td>
+                    <td>{{$e->ref_id}}</td>
+                    <td>{{$e->details}}</td>
+                    <td>{{$e->created_at}}</td>
+
         </tr>
+        @endforeach
     </tbody>
               </table>
             </div>
@@ -94,7 +96,7 @@
         lengthChange: false,
         buttons: [ 'copy', 'excel', 'pdf', 'print']
       } );
-     
+
       table.buttons().container()
         .appendTo( '#example2_wrapper .col-md-6:eq(0)' );
     } );

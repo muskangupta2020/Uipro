@@ -28,6 +28,24 @@
 						</div>
 					</div>
 				</div>
+				@if (session('message') != null)
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p class="alert alert-success">
+                                {{ session('message') }}
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    @endif
+                    @if (session('notmessage') != null)
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <p class="alert alert-danger">
+                                {{ session('message') }}
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    @endif
 				<!--end breadcrumb-->
 				<div class="row">
 					<div class="col col-lg-9 mx-auto">
@@ -58,10 +76,7 @@
     												</div>
     												<div class="col">
       												<label for="sel1">Brand Name</label>
-      												<select class="form-control" type="select" name="brand_name">
-      												<option>default</option>
-      												<option>2:1/1:1</option>
-      												</select> 
+      												 <input type="text" class="form-control" name="brand_name">
     												</div>
   													</div>
 													<button type="submit" class="btn btn-primary mt-3" >Save changes</button>

@@ -53,23 +53,34 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach($withdraw as $w)
 
         <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href=""><button  style="font-size:15px" class="btn btn-danger">Pay</button></a>&nbsp;
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$w->user_id}}</td>
+                    <td>{{$w->withdrawal_amount}}</td>
+                    <td>5</td>
+                    <td>8</td>
+                    <td><?php   $min=($w->withdrawal_amount*13)/100; 
+
+                    echo  $w->withdrawal_amount - $min;
+                  ?></td>
+                    <td>{{$w->created_at}}</td>
+                    <td>razor pay</td>
+                    <td><p>Beneficiary Name: {{$w->user_name}}</p>
+                <p>KYC: Compliance</p>
+                <p>PAN : {{$w->pan_no}}</p>
+                <p>Bank Name : {{$w->bank_name}}</p>
+                <p>IFSC CODE: {{$w->bank_ifsc}}</p>
+                <p>Account No: {{$w->bank_account_no}}</p>
+                <p>Bank Branch: {{$w->pan_branch}}</p></td>
+                    <td><a href="{{url('admin/withdraw_pay/'.$w->w_id)}}"><button  style="font-size:15px" class="btn btn-danger"@if($w->withdrawal_status!='approve')  @endif >Pay</button></a>&nbsp;
                     <a href=""><button  style="font-size:15px" class="btn btn-success">Hold</button></a>&nbsp;
                    <a href=""><button  style="font-size:15px" class="btn btn-secondary">Delete</button></a>&nbsp;</td>
 
               
         </tr>
+        @endforeach
     </tbody>
               </table>
             </div>
@@ -98,7 +109,7 @@
   <script>
     $(document).ready(function() {
       var table = $('#example2').DataTable( {
-        lengthChange: false,
+        lengthChange: true,
         buttons: [ 'copy', 'excel', 'pdf', 'print']
       } );
      

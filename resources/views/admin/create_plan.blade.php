@@ -1,5 +1,6 @@
 @extends('admin.master')
 @section('content')
+
 <!--start page wrapper -->
 		<div class="page-wrapper">
 			<div class="page-content">

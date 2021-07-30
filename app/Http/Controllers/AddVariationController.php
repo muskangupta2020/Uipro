@@ -21,7 +21,11 @@ class AddVariationController extends Controller
         $data->save();
         if($data)
         {
-            return redirect('admin/add_variation');
+            return redirect('admin/add_variation')->with('message', 'data Inserted in Database');;
+        }
+        else
+        {
+            return redirect('admin/add_variation')->with('notmessage', 'Something went wrong');
         }
     }
     public function display()
@@ -40,7 +44,7 @@ class AddVariationController extends Controller
         $d = $delete->delete();
         if($d)
         {
-            return redirect('admin/add_variation');
+            return redirect('admin/add_variation')->with('message', 'data Deleted in Database');
         }
     }
     public function variation_update(Request $u)
@@ -51,7 +55,7 @@ class AddVariationController extends Controller
         $data->save();
         if($data)
         {
-            return redirect('admin/add_variation');
+            return redirect('admin/add_variation')->with('message', 'data Updated in Database');
         }
     }
 }

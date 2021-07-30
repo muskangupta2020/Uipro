@@ -1,5 +1,3 @@
-
-
 @extends("admin.master")
 
 @section("content")
@@ -33,8 +31,8 @@
           </div>
         </div>
         <!--end breadcrumb-->
-              
-<h6 class="mb-0 text-uppercase">Request EPIN</h6>
+                  
+<h6 class="mb-0 text-uppercase">Product Sale Report</h6>
         <hr/>
         <div class="card">
           <div class="card-body">
@@ -42,32 +40,31 @@
               <table id="example2" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
-                    <th>SN</th>
-                    <th>Epin ID</th>
-                    <th>Amount</th>
-                    <th>Epin Number</th>
-                    <th>Issue To</th>
+                     <th>SN</th>
+                    <th>Vendor ID</th>
+                    <th>Vendor Name</th>
+                    <th>Product Name</th>
+                    <th>Product Cost</th>
+                    <th>Qty</th>
+                    <th>Total Cost</th>
+                    <th>status</th>
                     <th>Date</th>
-                    <th>Type</th>
-                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                 @foreach($data as $s)
-
-                    <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td>{{$s->epin_id}}</td>
-                    <td>{{$s->epin_amount}}</td>
-                    <td>{{$s->epin_no}}</td>
-                    <td>{{$s->user_id}}</td>
-                    <td>{{$s->created_at}}</td>
-                    <td>{{$s->epin_type}}</td>
-                    <td><a href="{{url('admin//'.$s->epin_id)}}"><button  style="font-size:15px" class="btn btn-info">Add Member</button></a>&nbsp;
-                    <a href="{{url('admin//'.$s->epin_id)}}"><button  style="font-size:15px" class="btn btn-success">Edit</button></a>&nbsp;
-                  <a href="{{url('admin//'.$s->epin_id)}}"><button  style="font-size:15px" class="btn btn-warning">View</button></a>&nbsp;</td>
-      </tr>
-      @endforeach
+                 
+        <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                      <td></td>
+                    <td></td>
+                    <td></td>            
+        </tr>
+       
     </tbody>
               </table>
             </div>

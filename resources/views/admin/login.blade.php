@@ -22,6 +22,13 @@
 	<title>Uipro</title>
 </head>
 
+          @if(session('message'))
+
+         <p class ="alert alert-success">
+          {{session('message')}}
+         </p>
+          
+            @endif
 <body class="bg-login">
 	<!--wrapper-->
 	<div class="wrapper">
@@ -30,15 +37,13 @@
 				<div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
 					<div class="col mx-auto">
 						<div class="mb-4 text-center">
-							<h1>ADMIN</h1>
+							<h1 class="text-primary"><img src="{{ url('assets/images/logo.jfif') }}" width="180" alt="" /></h1>
 						</div>
 						<div class="card">
 							<div class="card-body">
 								<div class="border p-4 rounded">
 									<div class="text-center">
-										<h3 class="">Sign in</h3>
-										<p>Don't have an account yet? <a href="{{ url('admin/register')}}">Sign up here</a>
-										</p>
+										<h4 class="text-primary">Admin Dashboard</h4>
 									</div>
 									<div class="d-grid">
 										<a class="btn my-4 shadow-sm btn-white" href="javascript:;"> <span class="d-flex justify-content-center align-items-center">
@@ -74,12 +79,7 @@
 												</div>
 											</div>
 											<div class="col-md-6">
-												<div class="form-check form-switch">
-													<input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-													<label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
-												</div>
-											</div>
-											<div class="col-md-6 text-end">	<a href="authentication-forgot-password.html">Forgot Password ?</a>
+												<a href="{{url('admin/reset_password_login')}}">Reset Password</a>
 											</div>
 											<div class="col-12">
 												<div class="d-grid">

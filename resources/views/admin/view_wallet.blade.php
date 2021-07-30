@@ -47,14 +47,15 @@
                   </tr>
                 </thead>
                 <tbody>
-
+                  @foreach($wallet as $w)
         <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$w->user_id}}</td>
+                    <td>{{$w->user_name}}</td>
+                    <td>{{$w->wallet_balance}}</td>
               
         </tr>
+        @endforeach
     </tbody>
               </table>
             </div>

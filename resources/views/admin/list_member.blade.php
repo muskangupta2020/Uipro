@@ -117,12 +117,11 @@ function exportTableToCSV(filename) {
           <td>{{$a->phone_no}}</td>
           <td>{{$a->created_at}}</td>
           <td>{{$a->created_at}}</td>
-          <td id=totalDownLine></td>
+          <td id=totalDownLine><a id="down">Show TotalDownline</a></td>
          <td>
-          <a href=""><button  style="font-size:15px" class="btn btn-success">View</button></a>&nbsp;
-          <a href=""><button  style="font-size:15px" class="btn btn-info">Edit</button></a>&nbsp;
-          <a href=""><button  style="font-size:15px" class="btn btn-danger">Login</button></a>&nbsp;
-
+          <a href="{{url('admin/view_member/'.$a->id)}}"><button  style="font-size:15px" class="btn btn-success">View</button></a>&nbsp;
+          <a href="{{url('admin/edit_member/'.$a->id)}}"><button  style="font-size:15px" class="btn btn-info">Edit</button></a>&nbsp;
+          
           </td>
                   </tr>
                   @endforeach
@@ -136,15 +135,7 @@ function exportTableToCSV(filename) {
     </div>
   </div>
 </div>
-@section('totalDown')
-<script type="text/javascript">
-  document.getElementById('userId').addEventListener('onchange',function(){
-    var userid;
-    userId=document.getElementById('userId').innerText;
-    console.log(userId);
-  });
-</script>
-@endsection
+
 </body>
 </html>
 
@@ -152,4 +143,14 @@ function exportTableToCSV(filename) {
    <!----end data table------>
 
 
+@endsection
+@section('totalDown')
+<script type="text/javascript">
+  document.getElementById('userId').addEventListener('onchange',function(){
+    var userid;
+    userId=document.getElementById('userId').innerText;
+    console.log(userId);
+  });
+
+</script>
 @endsection

@@ -9,7 +9,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-	<link rel="icon" href="{{url('user/assets/images/favicon-32x32.png')}}" type="image/png" />
+	<link rel="icon" href="{{url('assets/images/logo.jfif')}}" type="image/png" />
 	<!--plugins-->
 	<link href="{{url('user/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
 	<link href="{{url('user/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" />
@@ -27,18 +27,20 @@
 	<link rel="stylesheet" href="{{url('user/assets/css/dark-theme.css')}}" />
 	<link rel="stylesheet" href="{{url('user/assets/css/semi-dark.css')}}" />
 	<link rel="stylesheet" href="{{url('user/assets/css/header-colors.css')}}" />
-  	<title>Dashkote</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<title>Digital Bussiness Global</title>
 </head>
+
 	<!--wrapper-->
 	<div class="wrapper">
 		<!--sidebar wrapper -->
 		<div class="sidebar-wrapper" data-simplebar="true">
 			<div class="sidebar-header">
 				<div>
-					<img src="{{url('../user/assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
+					<img src="{{url('../assets/images/logo.jfif')}}" class="logo-icon" alt="logo icon">
 				</div>
 				<div>
-					<h4 class="logo-text">Uipro</h4>
+					<h4 class="logo-text">DBG</h4>
 				</div>
 				<div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
 				</div>
@@ -46,7 +48,14 @@
 			<!--navigation-->
 			<ul class="metismenu" id="menu">
 				<li>
-					<a href="{{url('user/index')}}" href="javascript:;">
+					<div>
+						<p class="text-center">Hi,Bussiness</p>
+						<p class="text-center">{{Auth::user()->user_id}}&nbsp;
+							{{Auth::user()->name}}</p>
+					</div>
+				</li>
+				<li>
+					<a href="{{url('user/index')}}" >
 						<div class="parent-icon"><i style="font-size:24px" class="fa">&#xf0e4;</i>
 						</div>
 						<div class="menu-title">Dashboard</div>
@@ -54,7 +63,7 @@
 
 				</li>
 				<li>
-					<a href="widgets.html" href="javascript:;">
+					<a href="{{url('user/show_letter')}}" href="javascript:;">
 						<div class="parent-icon"><i class="fa fa-file" aria-hidden="true"></i>
 						</div>
 						<div class="menu-title">Welcome Letter</div>
@@ -62,7 +71,7 @@
 				</li>
 				<li>
 				<li>
-					<a href="widgets.html" href="javascript:;" >
+					<a href="{{url('user/my_invoice')}}" href="javascript:;" >
 						<div class="parent-icon"><i class="fa fa-print" aria-hidden="true"></i>
 						</div>
 						<div class="menu-title">My Invoices</div>
@@ -75,14 +84,13 @@
 						<div class="menu-title">My e-Pins</div>
 					</a>
 					<ul>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Un-Used e-Pins</a>
+						<li> <a href="{{url('user/user_unused_epin')}}"><i class="bx bx-right-arrow-alt"></i>Un-Used e-Pins</a>
 						</li>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Used e-Pins</a>
+						<li> <a href="{{url('user/user_used_epin')}}"><i class="bx bx-right-arrow-alt"></i>Used e-Pins</a>
 						</li>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Transfer e-Pins</a>
+						<li> <a href="{{url('user/user_transfer_epin')}}"><i class="bx bx-right-arrow-alt"></i>Transfer e-Pins</a>
 						</li>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Generate e-Pins</a>
-						</li>
+						
 					</ul>
 				</li>
 				<li>
@@ -92,13 +100,13 @@
 						<div class="menu-title">My Earnings</div>
 					</a>
 					<ul>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>My Earnings</a>
+						<li> <a href="{{url('user/my_earning')}}"><i class="bx bx-right-arrow-alt"></i>My Earnings</a>
 						</li>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>My Deductions</a>
+						<li> <a href="{{url('user/my_deduction')}}"><i class="bx bx-right-arrow-alt"></i>My Deductions</a>
 						</li>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Search Earnings</a>
+						<li> <a href="{{url('user/user_search_earning')}}"><i class="bx bx-right-arrow-alt"></i>Search Earnings</a>
 						</li>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>My Rewards</a>
+						<li> <a href="{{url('user/my_reward')}}"><i class="bx bx-right-arrow-alt"></i>My Rewards</a>
 						</li>
 					</ul>
 				</li>
@@ -109,11 +117,11 @@
 						<div class="menu-title">Deposit</div>
 					</a>
 					<ul>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Epin Deposit</a>
+						<li> <a href="{{url('user/epin_deposit')}}"><i class="bx bx-right-arrow-alt"></i>Epin Deposit</a>
 						</li>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Bank Deposit</a>
+						<li> <a href="{{url('user/bank_deposit')}}"><i class="bx bx-right-arrow-alt"></i>Bank Deposit</a>
 						</li>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Deposit History</a>
+						<li> <a href="{{url('user/deposit_history')}}"><i class="bx bx-right-arrow-alt"></i>Deposit History</a>
 						</li>
 					</ul>
 				</li>
@@ -124,22 +132,24 @@
 						<div class="menu-title">Withdraw</div>
 					</a>
 					<ul>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Withdraw Payouts</a>
+						<li> <a href="{{url('user/withdraw_payouts')}}"><i class="bx bx-right-arrow-alt"></i>Withdraw Payouts</a>
+						</li>
+						<li> <a href="{{url('user/withdraw_history')}}"><i class="bx bx-right-arrow-alt"></i>Withdraw History</a>
 						</li>
 					</ul>
 				</li>
 								<li>
-					<a class="has-arrow" href="{{url('user/registration')}}">
-						<div class="parent-icon"><i class='bx bx-message-square-edit'></i>
+					<a href="{{url('user/registration')}}">
+						<div class="parent-icon"><i class="fa fa-pencil-square" aria-hidden="true"></i>
 						</div>
-						<div class="menu-title">Registration Form</div>
+						<div class="menu-title">User Registration Form</div>
 					</a>
 				</li>
 				<li>
-					<a class="has-arrow" href="{{url('user/vendor')}}">
-						<div class="parent-icon"><i class='bx bx-message-square-edit'></i>
+					<a  href="{{url('user/vendor')}}">
+						<div class="parent-icon"><i class="fa fa-user-circle" aria-hidden="true"></i>
 						</div>
-						<div class="menu-title">Vendor Form</div>
+						<div class="menu-title">Vendor/Member Form</div>
 					</a>
 				</li>
 								<li>
@@ -149,9 +159,9 @@
 						<div class="menu-title">Reports</div>
 					</a>
 					<ul>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Wallet Transactions</a>
+						<li> <a href="{{url('user/wallet_transaction')}}"><i class="bx bx-right-arrow-alt"></i>Wallet Transactions</a>
 						</li>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Payout Report</a>
+						<li> <a href="{{url('user/user_payout_report')}}"><i class="bx bx-right-arrow-alt"></i>Payout Report</a>
 						</li>
 					</ul>
 				</li>
@@ -162,11 +172,11 @@
 						<div class="menu-title">Tree & Downline</div>
 					</a>
 					<ul>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>My Downline Tree</a>
+						<li> <a href="{{url('user/mydownline_tree')}}"><i class="bx bx-right-arrow-alt"></i>My Downline Tree</a>
 						</li>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Direct Referral List</a>
+						<li> <a href="{{url('user/direct_referrer_list')}}"><i class="bx bx-right-arrow-alt"></i>Direct Referral List</a>
 						</li>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Add Member</a>
+						<li> <a href="{{url('user/vendor')}}"><i class="bx bx-right-arrow-alt"></i>Add Member</a>
 						</li>
 					</ul>
 				</li>
@@ -177,11 +187,30 @@
 						<div class="menu-title">My Purchases</div>
 					</a>
 					<ul>
-						<li> <a href=""><i class="bx bx-right-arrow-alt"></i></a>
-						</li>
 						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>Payout Report</a>
 						</li>
 					</ul>
+				</li>
+				<li>
+					<a href="{{url('user/kyc_document')}}" class="has-arrow">
+						<div class="parent-icon"><i class="fa fa-users" aria-hidden="true"></i>
+						</div>
+						<div class="menu-title">KYC</div>
+					</a>
+				</li>
+				<li>
+					<a href="{{url('user/my_support')}}" class="has-arrow">
+						<div class="parent-icon"><i class="fa fa-question" aria-hidden="true"></i>
+						</div>
+						<div class="menu-title">My Support</div>
+					</a>
+				</li>
+				<li>
+					<a href="{{url('user/reset_password')}}" class="has-arrow">
+						<div class="parent-icon"><i class="fa fa-cog" aria-hidden="true"></i>
+						</div>
+						<div class="menu-title">My Profile & Setting</div>
+					</a>
 				</li>
 
 								
@@ -206,9 +235,6 @@
 					<div class="top-menu-left d-none d-lg-block">
 						<ul class="nav">
 						  <li class="nav-item">
-							<a class="nav-link" href="app-emailbox.html"><i class='bx bx-envelope'></i></a>
-						  </li>
-						  <li class="nav-item">
 							<a class="nav-link" href="app-chat-box.html"><i class='bx bx-message'></i></a>
 						  </li>
 						  <li class="nav-item">
@@ -225,12 +251,325 @@
 							<span class="position-absolute top-50 search-close translate-middle-y"><i class='bx bx-x'></i></span>
 						</div>
 					</div>
+					<div class="top-menu ms-auto">
+						<ul class="navbar-nav align-items-center">
+							<li class="nav-item mobile-search-icon">
+								<a class="nav-link" href="#">	<i class='bx bx-search'></i>
+								</a>
+							</li>
+							<li class="nav-item dropdown dropdown-large">
+								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">	<i class='bx bx-category'></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-end">
+									<div class="row row-cols-3 g-3 p-3">
+										<div class="col text-center">
+											<div class="app-box mx-auto bg-gradient-cosmic text-white"><i class='bx bx-group'></i>
+											</div>
+											<div class="app-title">Teams</div>
+										</div>
+										<div class="col text-center">
+											<div class="app-box mx-auto bg-gradient-burning text-white"><i class='bx bx-atom'></i>
+											</div>
+											<div class="app-title">Projects</div>
+										</div>
+										<div class="col text-center">
+											<div class="app-box mx-auto bg-gradient-lush text-white"><i class='bx bx-shield'></i>
+											</div>
+											<div class="app-title">Tasks</div>
+										</div>
+										<div class="col text-center">
+											<div class="app-box mx-auto bg-gradient-kyoto text-dark"><i class='bx bx-notification'></i>
+											</div>
+											<div class="app-title">Feeds</div>
+										</div>
+										<div class="col text-center">
+											<div class="app-box mx-auto bg-gradient-blues text-dark"><i class='bx bx-file'></i>
+											</div>
+											<div class="app-title">Files</div>
+										</div>
+										<div class="col text-center">
+											<div class="app-box mx-auto bg-gradient-moonlit text-white"><i class='bx bx-filter-alt'></i>
+											</div>
+											<div class="app-title">Alerts</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="nav-item dropdown dropdown-large">
+								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">7</span>
+									<i class='bx bx-bell'></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-end">
+									<a href="javascript:;">
+										<div class="msg-header">
+											<p class="msg-header-title">Notifications</p>
+											<p class="msg-header-clear ms-auto">Marks all as read</p>
+										</div>
+									</a>
+									<div class="header-notifications-list">
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="notify bg-light-primary text-primary"><i class="bx bx-group"></i>
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
+												ago</span></h6>
+													<p class="msg-info">5 new user registered</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="notify bg-light-danger text-danger"><i class="bx bx-cart-alt"></i>
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">New Orders <span class="msg-time float-end">2 min
+												ago</span></h6>
+													<p class="msg-info">You have recived new orders</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="notify bg-light-success text-success"><i class="bx bx-file"></i>
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">24 PDF File<span class="msg-time float-end">19 min
+												ago</span></h6>
+													<p class="msg-info">The pdf files generated</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="notify bg-light-warning text-warning"><i class="bx bx-send"></i>
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">Time Response <span class="msg-time float-end">28 min
+												ago</span></h6>
+													<p class="msg-info">5.1 min avarage time response</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="notify bg-light-info text-info"><i class="bx bx-home-circle"></i>
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">New Product Approved <span
+												class="msg-time float-end">2 hrs ago</span></h6>
+													<p class="msg-info">Your new product has approved</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="notify bg-light-danger text-danger"><i class="bx bx-message-detail"></i>
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">New Comments <span class="msg-time float-end">4 hrs
+												ago</span></h6>
+													<p class="msg-info">New customer comments recived</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="notify bg-light-success text-success"><i class='bx bx-check-square'></i>
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">Your item is shipped <span class="msg-time float-end">5 hrs
+												ago</span></h6>
+													<p class="msg-info">Successfully shipped your item</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="notify bg-light-primary text-primary"><i class='bx bx-user-pin'></i>
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">New 24 authors<span class="msg-time float-end">1 day
+												ago</span></h6>
+													<p class="msg-info">24 new authors joined last week</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="notify bg-light-warning text-warning"><i class='bx bx-door-open'></i>
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">Defense Alerts <span class="msg-time float-end">2 weeks
+												ago</span></h6>
+													<p class="msg-info">45% less alerts last 4 weeks</p>
+												</div>
+											</div>
+										</a>
+									</div>
+									<a href="javascript:;">
+										<div class="text-center msg-footer">View All Notifications</div>
+									</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown dropdown-large">
+								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">8</span>
+									<i class='bx bx-comment'></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-end">
+									<a href="javascript:;">
+										<div class="msg-header">
+											<p class="msg-header-title">Messages</p>
+											<p class="msg-header-clear ms-auto">Marks all as read</p>
+										</div>
+									</a>
+									<div class="header-message-list">
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="user-online">
+													<img src="https://via.placeholder.com/110x110" class="msg-avatar" alt="user avatar">
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">Daisy Anderson <span class="msg-time float-end">5 sec
+												ago</span></h6>
+													<p class="msg-info">The standard chunk of lorem</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="user-online">
+													<img src="https://via.placeholder.com/110x110" class="msg-avatar" alt="user avatar">
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">Althea Cabardo <span class="msg-time float-end">14
+												sec ago</span></h6>
+													<p class="msg-info">Many desktop publishing packages</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="user-online">
+													<img src="https://via.placeholder.com/110x110" class="msg-avatar" alt="user avatar">
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">Oscar Garner <span class="msg-time float-end">8 min
+												ago</span></h6>
+													<p class="msg-info">Various versions have evolved over</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="user-online">
+													<img src="https://via.placeholder.com/110x110" class="msg-avatar" alt="user avatar">
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">Katherine Pechon <span class="msg-time float-end">15
+												min ago</span></h6>
+													<p class="msg-info">Making this the first true generator</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="user-online">
+													<img src="https://via.placeholder.com/110x110" class="msg-avatar" alt="user avatar">
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">Amelia Doe <span class="msg-time float-end">22 min
+												ago</span></h6>
+													<p class="msg-info">Duis aute irure dolor in reprehenderit</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="user-online">
+													<img src="https://via.placeholder.com/110x110" class="msg-avatar" alt="user avatar">
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">Cristina Jhons <span class="msg-time float-end">2 hrs
+												ago</span></h6>
+													<p class="msg-info">The passage is attributed to an unknown</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="user-online">
+													<img src="https://via.placeholder.com/110x110" class="msg-avatar" alt="user avatar">
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">James Caviness <span class="msg-time float-end">4 hrs
+												ago</span></h6>
+													<p class="msg-info">The point of using Lorem</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="user-online">
+													<img src="https://via.placeholder.com/110x110" class="msg-avatar" alt="user avatar">
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">Peter Costanzo <span class="msg-time float-end">6 hrs
+												ago</span></h6>
+													<p class="msg-info">It was popularised in the 1960s</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="user-online">
+													<img src="https://via.placeholder.com/110x110" class="msg-avatar" alt="user avatar">
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">David Buckley <span class="msg-time float-end">2 hrs
+												ago</span></h6>
+													<p class="msg-info">Various versions have evolved over</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="user-online">
+													<img src="https://via.placeholder.com/110x110" class="msg-avatar" alt="user avatar">
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">Thomas Wheeler <span class="msg-time float-end">2 days
+												ago</span></h6>
+													<p class="msg-info">If you are going to use a passage</p>
+												</div>
+											</div>
+										</a>
+										<a class="dropdown-item" href="javascript:;">
+											<div class="d-flex align-items-center">
+												<div class="user-online">
+													<img src="https://via.placeholder.com/110x110" class="msg-avatar" alt="user avatar">
+												</div>
+												<div class="flex-grow-1">
+													<h6 class="msg-name">Johnny Seitz <span class="msg-time float-end">5 days
+												ago</span></h6>
+													<p class="msg-info">All the Lorem Ipsum generators</p>
+												</div>
+											</div>
+										</a>
+									</div>
+									<a href="javascript:;">
+										<div class="text-center msg-footer">View All Messages</div>
+									</a>
+								</div>
+							</li>
+						</ul>
+					</div>
 					<div class="user-box dropdown">
 						<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<img src="https://via.placeholder.com/110x110" class="user-img" alt="user avatar">
 							<div class="user-info ps-3">
 								<p class="user-name mb-0"></p>
-								<p class="designattion mb-0">Admin</p>
+								<p class="designattion mb-0"></p>
 							</div>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end">
@@ -293,6 +632,17 @@
 		new PerfectScrollbar('.store-metrics');
 		new PerfectScrollbar('.product-list');
 	</script> -->
+	<script type="text/javascript">
+	function selectpayment_method(){
+		if($('.stripe').is(':checked') || $('.cod').is(':checked') || $('.paytm').is(':checked') || $('.Instamojo').is(':checked') || $('.Razorpay').is(':checked') ){
+      alert('checked');
+    }
+    else{
+      alert('Please select payment method');
+      return false;
+    }
+	}
+</script>
 </body>
 
 </html>

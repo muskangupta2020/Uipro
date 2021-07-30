@@ -9,7 +9,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-	<link rel="icon" href="{{url('assets/images/favicon-32x32.png')}}" type="image/png" />
+	<link rel="icon" href="{{url('assets/images/logo.jfif')}}" type="image/png" />
 	<!--plugins-->
 	<link href="{{url('assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
 	<link href="{{url('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" />
@@ -28,7 +28,11 @@
 	<link rel="stylesheet" href="{{url('assets/css/semi-dark.css')}}" />
 	<link rel="stylesheet" href="{{url('assets/css/header-colors.css')}}" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  	<title>Dashkote</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	 <script> $(document).ready(function(){ $('#mymodel').modal('show');}); </script>
+  	<title>Digital Bussiness Global</title>
 </head>
 	<!--wrapper-->
 	<div class="wrapper">
@@ -36,10 +40,10 @@
 		<div class="sidebar-wrapper" data-simplebar="true">
 			<div class="sidebar-header">
 				<div>
-					<img src="{{url('../assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
+					<img src="{{url('../assets/images/logo.jfif')}}" class="logo-icon" alt="logo icon">
 				</div>
 				<div>
-					<h4 class="logo-text">Uipro</h4>
+					<h4 class="logo-text">DBG</h4>
 				</div>
 				<div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
 				</div>
@@ -118,7 +122,12 @@
 						</div>
 						<div class="menu-title">Network</div>
 					</a>
-
+					<ul>
+						<li> <a href="{{url('admin/user_tree')}}"><i class="bx bx-right-arrow-alt"></i>User Tree</a>
+						</li>
+						<li><a href="{{url('admin/referred_member')}}"><i class="bx bx-right-arrow-alt"></i>Referred Member</a></li>
+						<li><a href="{{url('user/vendor')}}"><i class="bx bx-right-arrow-alt"></i>Add Member</a></li>
+					</ul>
 				</li>
 				<li>
 					<a href="javascript:;" class="has-arrow">
@@ -163,7 +172,7 @@
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="fa fa-cc-visa" aria-hidden="true"></i>
 						</div>
-						<div class="menu-title">Memeber E-Wallet</div>
+						<div class="menu-title">Member E-Wallet</div>
 					</a>
 					<ul>
 						<li> <a href="{{url('admin/view_wallet')}}"><i class="bx bx-right-arrow-alt"></i>View Wallet</a>
@@ -186,6 +195,10 @@
 						</div>
 						<div class="menu-title">Deposit</div>
 					</a>
+					<ul>
+						<li> <a href="{{url('admin/bank_money_request')}}"><i class="bx bx-right-arrow-alt"></i>Add Money Request</a>
+						</li>
+							</ul>
 
 				</li>
 								<li>
@@ -194,7 +207,16 @@
 						</div>
 						<div class="menu-title">Reports</div>
 					</a>
-
+					<ul>
+						<li> <a href="{{url('admin/payout_report')}}"><i class="bx bx-right-arrow-alt"></i>Payout Report</a>
+						</li>
+						<li> <a href="{{url('admin/tax_report')}}"><i class="bx bx-right-arrow-alt"></i>TDS/Tax Report</a>
+						</li>
+						<li> <a href="{{url('admin/product_sale_report')}}"><i class="bx bx-right-arrow-alt"></i>Product Sale Tax Report</a>
+						</li>
+						<li> <a href="{{url('admin/vendor_sale_report')}}"><i class="bx bx-right-arrow-alt"></i>Vendor Sale Tax Report</a>
+						</li>
+					</ul>
 				</li>
 								<li>
 					<a href="javascript:;" class="has-arrow">
@@ -202,7 +224,69 @@
 						</div>
 						<div class="menu-title">Business Settings</div>
 					</a>
-
+					<ul>
+						<li> <a href="{{url('admin/welcome_letter')}}"><i class="bx bx-right-arrow-alt"></i>Design Welcome Letter</a>
+						</li>
+						<li> <a href="{{url('admin/advance_setting')}}"><i class="bx bx-right-arrow-alt"></i>Advance Settings</a>
+						</li>
+						<li> <a href="{{url('admin/payout_setting')}}"><i class="bx bx-right-arrow-alt"></i>Payout Settings</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="fa fa-briefcase" aria-hidden="true"></i>
+						</div>
+						<div class="menu-title">Home Page Settings</div>
+					</a>
+					<ul>
+						<li> <a href="{{url('admin/navbar')}}"><i class="bx bx-right-arrow-alt"></i>Navabar</a>
+						</li>
+						<li> <a href="{{url('admin/carousel')}}"><i class="bx bx-right-arrow-alt"></i>Carousel</a>
+						</li>
+						<li> <a href="{{url('admin/shop_cat')}}"><i class="bx bx-right-arrow-alt"></i>Shop Category</a>
+						</li>
+						<li> <a href="{{url('admin/featured_product')}}"><i class="bx bx-right-arrow-alt"></i>Featured Products</a>
+						</li>
+						<li> <a href="{{url('admin/best_seller')}}"><i class="bx bx-right-arrow-alt"></i>best_seller</a>
+						</li>
+						<li> <a href="{{url('admin/blog')}}"><i class="bx bx-right-arrow-alt"></i>Latest blog</a>
+						</li>
+						<li> <a href="{{url('admin/insta_product')}}"><i class="bx bx-right-arrow-alt"></i>Slider INSTAGRAM product image</a>
+						</li>
+						<li> <a href="{{url('admin/footer')}}"><i class="bx bx-right-arrow-alt"></i>Footer</a>
+						</li>
+						<li> <a href="{{url('admin/social_links')}}"><i class="bx bx-right-arrow-alt"></i>Social Links</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="fa fa-briefcase" aria-hidden="true"></i>
+						</div>
+						<div class="menu-title">Contact Page Settings</div>
+					</a>
+					<ul>
+						<li> <a href="{{url('admin/contact_info')}}"><i class="bx bx-right-arrow-alt"></i>Contact Information</a>
+						</li>
+						<li> <a href="{{url('admin/contact_us')}}"><i class="bx bx-right-arrow-alt"></i>Contact Us Details</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="fa fa-briefcase" aria-hidden="true"></i>
+						</div>
+						<div class="menu-title">About Page Settings</div>
+					</a>
+					<ul>
+						<li> <a href="{{url('admin/about')}}"><i class="bx bx-right-arrow-alt"></i>About</a>
+						</li>
+						<li> <a href="{{url('admin/about_us')}}"><i class="bx bx-right-arrow-alt"></i>About_US</a>
+						</li>
+						<li> <a href="{{url('admin/team')}}"><i class="bx bx-right-arrow-alt"></i>Team</a>
+						</li>
+					</ul>
 				</li>
 								<li>
 					<a href="javascript:;" class="has-arrow">
@@ -210,6 +294,14 @@
 						</div>
 						<div class="menu-title">KYC Compliance</div>
 					</a>
+					<ul>
+						<li> <a href="{{url('admin/pending_kyc')}}"><i class="bx bx-right-arrow-alt"></i>Pending KYC</a>
+						</li>
+						<li> <a href="{{url('admin/approve_kyc')}}"><i class="bx bx-right-arrow-alt"></i>Approved KYC</a>
+						</li>
+						<li> <a href="{{url('admin/rejected_kyc')}}"><i class="bx bx-right-arrow-alt"></i>Rejected KYC</a>
+						</li>
+					</ul>
 
 				</li>
 								<li>
@@ -218,6 +310,16 @@
 						</div>
 						<div class="menu-title">Rewards</div>
 					</a>
+					<ul>
+						<li> <a href="{{url('admin/pay_reward')}}"><i class="bx bx-right-arrow-alt"></i>Pay Rewards</a>
+						</li>
+						<li> <a href="{{url('admin/search_reward')}}"><i class="bx bx-right-arrow-alt"></i>Search Rewards</a>
+						</li>
+						<li> <a href="{{url('admin/reward_setting')}}"><i class="bx bx-right-arrow-alt"></i>Reward Setting</a>
+						</li>
+						<li> <a href="{{url('admin/rank_setting')}}"><i class="bx bx-right-arrow-alt"></i>Rank Setting</a>
+						</li>
+					</ul>
 
 				</li>
 								<li>
@@ -226,10 +328,14 @@
 						</div>
 						<div class="menu-title">Advt Income</div>
 					</a>
+					<ul>
+						<li> <a href="{{url('admin/advt')}}"><i class="bx bx-right-arrow-alt"></i>Manage Advt</a>
+						</li>
+					</ul>
 
 				</li>
 												<li>
-					<a href="javascript:;" class="has-arrow">
+					<a href="{{url('admin/invoice')}}">
 						<div class="parent-icon"><i class="fa fa-print" aria-hidden="true"></i>
 						</div>
 						<div class="menu-title">Invoice</div>
@@ -242,7 +348,12 @@
 						</div>
 						<div class="menu-title">Support Tickects</div>
 					</a>
-
+					<ul>
+					<li> <a href="{{url('admin/unsolved_ticket')}}"><i class="bx bx-right-arrow-alt"></i>Unsolved Tickets</a>
+						</li>
+						<li> <a href="{{url('admin/resolved_ticket')}}"><i class="bx bx-right-arrow-alt"></i>Resolved Tickets</a>
+						</li>
+					</ul>	
 				</li>
 												<li>
 					<a href="javascript:;" class="has-arrow">
@@ -250,11 +361,32 @@
 						</div>
 						<div class="menu-title">My Profile & Settings</div>
 					</a>
+					<ul>
+						<li> <a href="{{url('admin/reset_password_login')}}"><i class="bx bx-right-arrow-alt"></i>Setting & Password</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="{{url('admin/coupan')}}">
+						<div class="parent-icon"><i class="fa fa-percent" aria-hidden="true"></i>
+						</div>
+						<div class="menu-title">Coupan</div>
+
+					</a>
+
+				</li>
+				<li>
+					<a href="{{url('admin/advance_coupan')}}">
+						<div class="parent-icon"><i class="fa fa-percent" aria-hidden="true"></i>
+						</div>
+						<div class="menu-title">Advance Coupan</div>
+
+					</a>
 
 				</li>
 				<li class="menu-label">Important Tools</li>
 						<li>
-					<a class="has-arrow" href="javascript:;">
+					<a  href="{{ url('admin/logout') }}">
 						<div class="parent-icon"><i class="fa fa-sign-out" aria-hidden="true"></i>
 						</div>
 						<div class="menu-title">Logout</div>

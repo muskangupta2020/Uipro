@@ -20,6 +20,13 @@
 	<link href="{{url('assets/css/icons.css')}}" rel="stylesheet">
 	<title>Uipro Corporation</title>
 </head>
+@if(session('message'))
+
+         <p class ="alert alert-success">
+          {{session('message')}}
+         </p>
+          
+            @endif
 
 <body class="bg-login">
 	<!--wrapper-->
@@ -97,12 +104,7 @@
                                         		<strong>{{ $message }}</strong>
                                     			</span>
                                 				@enderror
-												<select class="form-select" id="inputSelectCountry" aria-label="Default select example" name="country">
-													<option selected>India</option>
-													<option value="1">United Kingdom</option>
-													<option value="2">America</option>
-													<option value="3">Dubai</option>
-												</select>
+												<input type="text" class="form-control" id="inputEmailAddress"  name="country">
 											</div>
 											<div class="col-12">
 												<div class="form-check form-switch">
@@ -152,7 +154,7 @@
 		});
 	</script>
 	<!--app JS-->
-	<script src="assets/js/app.js"></script>
+	<script src="{{url('assets/js/app.js')}}"></script>
 </body>
 
 </html>

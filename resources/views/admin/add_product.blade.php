@@ -1,5 +1,6 @@
 @extends('admin.master')
 @section('content')
+                        
 <div class="page-wrapper">
       <div class="page-content">
         <!--breadcrumb-->
@@ -15,6 +16,24 @@
             </nav>
           </div>
         </div>
+        @if (session('message') != null)
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p class="alert alert-success">
+                                {{ session('message') }}
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    @endif
+                    @if (session('notmessage') != null)
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <p class="alert alert-danger">
+                                {{ session('notmessage') }}
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    @endif
         <!--end breadcrumb-->
         <div class="row">
           <div class="col-xl-8 mx-auto">
@@ -86,16 +105,11 @@
       				</div>
                         <div  class="col-md-6" style="width: 50%">
       						<label for="sel1">Availability Quantity(-1 to no limit)</label>
-      						<select class="form-control" type="select" name="avl_qty">
-      						<option>Daily</option>
-      						<option>Weekly</option>
-      						<option>Monday</option>
-      						<option>Tuesday</option>
-      						</select> 
+      						<input type="text" name="avl_qty"  class="form-control"> 
         				</div>
                   <div class="col-md-6">
         				<label >Discount(%)</label>
-        				<input type="text" class="form-control" type="text" name="discount">
+        				<input type="text" class="form-control"  name="discount">
     				</div>
     				<div class="col-md-6">
         				<label >GST/TAX(%)</label>
@@ -103,11 +117,7 @@
       				</div>
       						<div class="col">
       						<label for="sel1">Select Product Type*</label>
-							<select class="form-control" type="select" name="product_type">
-      						<option value="single" >Single</option>
-      						<option></option>
-      						<option></option>
-      						</select> 
+							     <input  name="product_type" type="text" class="form-control">
       						</div>
       						<div class="col-md-6">
                         <h6 class="mb-0 text-uppercase">Image - 1</h6>
@@ -206,11 +216,12 @@
           <td>{{$a->selling_price}}</td>
           <td>{{$a->dealer_price}}</td>
           <td>{{$a->price}}</td><!--price after discount is not available now-->
-          <td>{{$a->img1}}</td>
+          <td><img src="/upload/{{$a->img1}}" width="100px" height="100px"></td>
           <td>{{$a->qty_sold}}</td>
           <td>{{$a->avl_qty}}</td>
          <td>
-          <a href="{{url('admin/delete_product/'.$a->id)}}"><button  style="font-size:15px" class="btn btn-danger">Delete</button></a>&nbsp;
+          <a href="{{url('admin/delete_product/'.$a->p_id)}}"><button  style="font-size:15px" class="btn btn-danger">Delete</button></a>&nbsp;
+          <a href="{{url('admin/edit_product/'.$a->p_id)}}"><button  style="font-size:15px" class="btn btn-info">Edit</button></a>&nbsp;
           
           </td>
       </tr>

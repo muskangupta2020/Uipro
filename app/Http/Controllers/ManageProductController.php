@@ -33,7 +33,7 @@ class ManageProductController extends Controller
        if($data)
     {
 
-        return redirect('admin/manage_categories');
+        return redirect('admin/manage_categories')->with('message','Parent Category Created Successfully');;
     }
 } 
     public function save_category(Request $s)
@@ -46,7 +46,7 @@ class ManageProductController extends Controller
     $data=$cat->save();
     if($data)
     {
-      return redirect('admin/manage_categories');
+      return redirect('admin/manage_categories')->with('message',' Category Created Successfully');
     }
   }
   public function display_parent_category()
@@ -87,7 +87,7 @@ class ManageProductController extends Controller
      $sub->save();
      if($sub)
      {
-       return redirect('admin/manage_categories');
+       return redirect('admin/manage_categories')->with('message','Sub Category Created Successfully');;
     }
    }
    
@@ -107,7 +107,16 @@ public function display_manage_category()
     $d =$delete->delete();
     if($d)
         {
-            return redirect('admin/display_manage_subcategory')->with('no',1);
+            return redirect('admin/display_manage_category')->with('message',' Category Deleted Successfully');;
+        }
+ }
+ public function delete_subcategory($id)
+ {
+    $delete = SubCategory::find($id);
+    $d = $delete->delete();
+    if($d)
+        {
+            return redirect('admin/display_manage_subcategory')->with('message',' SubCategory Deleted Successfully');;
         }
  }
 }

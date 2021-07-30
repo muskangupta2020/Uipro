@@ -43,7 +43,7 @@
 								<hr>
 								<form class="row g-3" method="post" action="{{url('admin/update/plan/{id}')}}" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" name="id" value="{{$edit->id}}">  
+                  <input type="hidden" name="id" value="{{$edit->id}}">
                   <div class="col-md-7">
                     <label for="inputState" class="form-label">Plan Type</label>
                     <input  type="select" name="plan_type" class="form-control" value="{{$edit->plan_type}}">
@@ -70,11 +70,11 @@
                   </div>
                   <div class="col-md-6">
                     <label for="inputState" class="form-label">First Pair Matching Ratio</label>
-                    <input  type="select" name="first_pair" class="form-control" value="{{$edit->first_pair}}"> 
+                    <input  type="select" name="first_pair" class="form-control" value="{{$edit->first_pair}}">
                   </div>
                   <div class="col-md-6">
                     <label for="inputState" class="form-label">Second Pair on wards Matching ratio</label>
-                    <input  type="select" name="second_pair" class="form-control" value="{{$edit->second_pair}}"> 
+                    <input  type="select" name="second_pair" class="form-control" value="{{$edit->second_pair}}">
                   </div>
                   <div class="col-md-6">
                     <label for="inputEmail" class="form-label">First Pair Matching Commission(In Rs.)</label>
@@ -195,6 +195,7 @@
                         <label for="usr">Invoice</label>
                         <input type="text" class="form-control" type="text" name="invoice" value="{{$edit->invoice}}">
                         </div>
+
                     <div class="col-12">
                     <label for="inputAddress2" class="form-label">Plan Description</label>
                     <textarea class="form-control" id="inputAddress2" placeholder="description" rows="3" name="description" value="{{$edit->description}}"></textarea>

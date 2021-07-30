@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Str;
-
+use App\ManagePlan;
 class RegisterController extends Controller
 {
     /*
@@ -66,7 +66,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     { $id=uniqid();
         $string="123456789asdfghjkl";
-
+        
         return User::create([
             'user_id'=>mt_rand(100000,999999),
             'name' => $data['name'],
@@ -80,6 +80,7 @@ class RegisterController extends Controller
             'position' => $data['position'],
             'city' => $data['city'],
             'zipcode' => $data['zipcode'],
+            'login_status'=> 'deactivated',
             'sponser_id' => random_int(100000, 999999),
         ]);
         // return $data;

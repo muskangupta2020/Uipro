@@ -29,7 +29,11 @@ class LevelCompletionIncomeController extends Controller
         $data->save();
         if($data)
         {
-            return redirect('admin/level_completion_income');
+            return redirect('admin/level_completion_income')->with('message', 'data Inserted in Database');
+        }
+        else
+        {
+            return redirect('admin/level_completion_income')->with('notmessage', 'something went wrong');
         }
 
     }
@@ -60,7 +64,7 @@ class LevelCompletionIncomeController extends Controller
         $data->save();
         if($data)
         {
-            return redirect('admin/level_completion_income');
+            return redirect('admin/level_completion_income')->with('message', 'data Updated in Database');;
         }
     }
     public function delete($id)
@@ -69,7 +73,7 @@ class LevelCompletionIncomeController extends Controller
     $d =$delete->delete();
     if($d)
         {
-            return redirect('admin/level_completion_income');
+            return redirect('admin/level_completion_income')->with('message', 'data Deleted in Database');;
         }
    }
 }

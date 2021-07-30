@@ -41,7 +41,24 @@ function exportTableToCSV(filename) {
 }  
 </script>  
   
+@if (session('message') != null)
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p class="alert alert-success">
+                                {{ session('message') }}
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
 
+                    @endif
+                    @if (session('notmessage') != null)
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <p class="alert alert-danger">
+                                {{ session('notmessage') }}
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    @endif
 <body>
  <div class="page-wrapper">
       <div class="page-content">

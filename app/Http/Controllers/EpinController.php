@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Requestepin;
-
+use Auth;
 use App\Epin;
 use App\User;
 use DB;
@@ -50,7 +50,11 @@ class EpinController extends Controller
         $epin->user_id = $request->user_id;
         $s =  $epin->save();
         if ($s) {
-            return redirect('admin/unused_epin');
+            return redirect('admin/unused_epin')->with('message', 'Epin Generted By Plan Successfully');
+        }
+        else
+        {
+            return redirect('admin/unused_epin')->with('notmessage', 'Something went wrong');
         }
     }
     public function ByAmount(Request $request)
@@ -65,8 +69,14 @@ class EpinController extends Controller
         $epin->epin_status = 'accepted';
         $epin->user_id = $request->user_id;
         $s =  $epin->save();
-        if ($s) {
-            return redirect('admin/unused_epin');
+        if ($s) 
+        {
+            return redirect('admin/unused_epin')->with('message', 'Epin Generted By Amount Successfully');
+        }
+        else
+        {
+            return redirect('admin/unused_epin')->with('notmessage', 'Something went wrong');
+
         }
     }
     public function transfer_save(Request $t)
@@ -96,11 +106,82 @@ class EpinController extends Controller
             // return redirect('admin/transfer_epin')->with('message','Epin Transfer Successfully');
         }
           return redirect('admin/transfer_epin')->with('message','Epin Transfer Successfully'); 
-    }else {
-            echo "again fill epin_no";
+    }
+    else {
+            return redirect('admin/transfer_epin')->with('notmessage','Epin not Transfer Successfully'); 
         }
 
 
         // $data = DB::table('epins')
+    }
+    public function user_unused_epin()
+    {
+         $userId = Auth::user()->user_id;
+         $user_name = Auth::user()->name;
+        $data = Epin::where('user_id',$userId)->where('user_name',$user_name)->get();
+        $data = Epin::where('user_name',$user_name)->get();
+        return view('user.user_unused_epin',compact('data'));
+    }
+    public function user_used_epin()
+    {
+        $data = Epin::all();
+        return view('user.user_used_epin',compact('data'));
+    }
+    public function user_transfer_epin()
+    {
+        $data = Epin::all();
+        return view('user.user_transfer_epin',compact('data'));
+    }
+    public function user_ByPlan(Request $request)
+    {
+        echo $userId = Auth::user()->user_id;
+        $epin=DB::table('epins')->where('user_id',$userId)->first();
+        // echo "<pre/>";
+        // print_r($epin);
+         $epinno=$epin->epin_no;
+         $input=$request->epin_no;
+         $name=User::where('user_id',$request->to_user_id)->first();
+         $name2=$name->name;
+        if( $input <= $epinno){
+            $no=$epin->epin_no -$request->epin_no;
+        $data = new Epin;
+        $data->epin_id = mt_rand(100000,999999);
+        $data->epin_no = $request->epin_no;
+        // $epin->epin_type = $request->epin_type;
+        $data->generated_by = 'member';
+        $data->epin_amount = $request->epin_amount;
+        $data->mode_of_epin = 'By Plan';
+        $data->epin_status = 'accepted';
+        $data->user_name=$name2;
+        $data->user_id = $request->to_user_id;
+        $s =  $data->save();
+        if ($s) 
+        {
+            $updateepin=Epin::where('user_id',$userId)->update(['epin_id'=>$no]);
+           if($updateepin){ 
+            return redirect('user/user_transfer_epin')->with('message', 'Epin Generted By Amount Successfully');
+            }
+            else{
+                 return redirect('user/user_transfer_epin')->with('notmessage', 'Something went wrong1');
+            }
+        }
+        else
+        {
+            return redirect('user/user_transfer_epin')->with('notmessage', 'Something went wrong');
+
+        }
+        }
+        else{
+            return redirect('user/user_transfer_epin')->with('notmessage', 'You donnot have suficient Epin' );
+
+        }
+    }
+    public function accept_epin(Request $request)
+    {
+         $status = 'accept';
+        $accept = Requestepin::where('epin_id', $request->epin_id)->update(['epin_status' => $status]);
+        if ($accept) {
+            return redirect('admin/request_epin')->with('message','accept');
+        }
     }
 }

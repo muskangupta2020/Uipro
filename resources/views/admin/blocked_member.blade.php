@@ -54,7 +54,7 @@
                     <td>{{$s->phone_no}}</td>
                     <td>{{$s->created_at}}</td>
                     <td>2</td>
-                    <td>{{$s->login_status}}</td>
+                    <td><span class="badge bg-light-danger text-danger w-100">{{$s->login_status}}</span></td>
                     <td><a href="{{url('admin/display_blocked_member/'.$s->user_id)}}"><button  style="font-size:15px" class="btn btn-danger">Blocked</button></a>&nbsp;
                     <a href="{{url('admin/display_activate_member/'.$s->user_id)}}"><button  style="font-size:15px" class="btn btn-success">Activate</button></a>&nbsp;</td>
                 

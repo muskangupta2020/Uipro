@@ -1,5 +1,3 @@
-
-
 @extends("admin.master")
 
 @section("content")
@@ -19,6 +17,24 @@
               </ol>
             </nav>
           </div>
+          @if (session('message') != null)
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p class="alert alert-success">
+                                {{ session('message') }}
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    @endif
+                    @if (session('notmessage') != null)
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <p class="alert alert-danger">
+                                {{ session('notmessage') }}
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    @endif
           <div class="ms-auto">
             <div class="btn-group">
               <button type="button" class="btn btn-primary">Settings</button>
@@ -65,9 +81,8 @@
                     <td>{{$s->phone_no}}</td>
                     <td>{{$s->created_at}}</td>
                     <td>2</td>
-                    <td><a href=""><button  style="font-size:15px" class="btn btn-warning">View</button></a>&nbsp;
-                    <a href=""><button  style="font-size:15px" class="btn btn-info">Edit</button></a>&nbsp;
-                  <a href=""><button  style="font-size:15px" class="btn btn-danger">Login</button></a>&nbsp;</td>
+                    <td>
+                  <a href="{{url('admin/login_mail/'.$s->id)}}"><button  style="font-size:15px" class="btn btn-danger">Login</button></a>&nbsp;</td>
                 
       </tr>
       @endforeach

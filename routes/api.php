@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/totaldownline','ApiController@downline');
+Route::get('/product','ApiController@product');
+ Route::get('/coupanamount','CoupanController@getAmount');
+ Route::get('/brandsearch/product','ApiController@BrandData');
+Route::get('/categories','ApiController@category');
+Route::get('/advancecoupan','ApiController@advance');

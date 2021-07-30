@@ -31,17 +31,30 @@
                         <div class="mb-4 text-center">
                             <img src="{{ url('user/assets/images/logo-img.png') }}" width="180" alt="" /><br>
                         </div>
-                        @if (session('message'))
-                            <div class="alert alert-danger">{{ session('message') }}</div>
-                        @endif
+                      
+@if (session('message') != null)
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p class="alert alert-success">
+                                {{ session('message') }}
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    @endif
+                    @if (session('notmessage') != null)
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <p class="alert alert-danger">
+                                {{ session('notmessage') }}
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    @endif
                         <div class="card">
                             <div class="card-body">
                                 <div class="border p-4 rounded">
                                     <div class="text-center">
-                                        <h3 class=""> User Sign in</h3>
-                                        <p>Don't have an account yet? <a href="{{ route('register') }}">Sign up
-                                                here</a>
-                                        </p>
+                                        <h4 class="text-primary">Vendor/Member Dashboard</h4>
                                     </div>
                                     <div class="d-grid">
                                         <a class="btn my-4 shadow-sm btn-white" href="javascript:;"> <span
@@ -91,15 +104,10 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox"
-                                                        id="flexSwitchCheckChecked" checked>
-                                                    <label class="form-check-label"
-                                                        for="flexSwitchCheckChecked">Remember Me</label>
-                                                </div>
+                                               
                                             </div>
                                             <div class="col-md-6 text-end"> <a
-                                                    href="authentication-forgot-password.html">Forgot Password ?</a>
+                                                    href="{{url('user/reset_password_login')}}">Reset Password ?</a>
                                             </div>
                                             <div class="col-12">
                                                 <div class="d-grid">

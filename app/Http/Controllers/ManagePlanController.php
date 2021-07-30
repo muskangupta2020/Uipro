@@ -36,15 +36,15 @@ class ManagePlanController extends Controller
         $data->sponsor_pair_matching=$c->sponsor_pair_matching;
         $data->configure_commission=$c->configure_commission;
         $data->select_product_purchase_commission=$c->select_product_purchase_commission;
-        $data->level_1=$c->level_1;
-        $data->level_2=$c->level_2;
-        $data->level_3=$c->level_3;
-        $data->level_4=$c->level_4;
-        $data->level_5=$c->level_5;
-        $data->level_6=$c->level_6;
-        $data->level_7=$c->level_7;
-        $data->level_8=$c->level_8;
-        $data->level_9=$c->level_9;
+        $data->level_1 =$c->level_1;
+        $data->level_2 =$c->level_2;
+        $data->level_3 =$c->level_3;
+        $data->level_4 =$c->level_4;
+        $data->level_5 =$c->level_5;
+        $data->level_6 =$c->level_6;
+        $data->level_7 =$c->level_7;
+        $data->level_8 =$c->level_8;
+        $data->level_9 =$c->level_9;
         $data->level_10=$c->level_10;
         $data->level_11=$c->level_11;
         $data->level_12=$c->level_12;
@@ -120,7 +120,7 @@ class ManagePlanController extends Controller
         $data->image=$filename;
         $data->save();
         if($data){
-            return redirect('admin/display_plan');
+            return redirect('admin/display_plan')->with('message','Data Updated Successfully');;
         }
     }
     public function delete($id)
@@ -129,7 +129,7 @@ class ManagePlanController extends Controller
     $d =$delete->delete();
     if($d)
         {
-            return redirect('admin/display_plan');
+            return redirect('admin/display_plan')->with('message','Data deleted Successfully'); 
         }
    }
    public function view($id)
